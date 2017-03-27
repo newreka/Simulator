@@ -305,11 +305,10 @@ def LONG_POLL_WAIT(READ_PARAMS):
 # --------------------------
 
 try:
-    f = open('prod_id.txt','r')
+    with open('prod_id.txt', 'r') as f:
+        productid = f.read().replace('\n', '')
 except IOError:
     print ("Product ID file not found or corrupt" )
-productid = f.read()
-f.close()
 
 host_address = productid + '.' + host_address_base
 
