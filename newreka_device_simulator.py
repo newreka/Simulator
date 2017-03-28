@@ -369,7 +369,7 @@ while LOOP:
         print("{}".format(output_string))
 
         # Look for change in low pressure warning 
-        status, resp = READ('underPressure')
+        status, resp = READ('lo_pres_warn')
         if not status and resp == 401:
             FLAG_CHECK_ACTIVATION = True
         if not status and resp == 304:
@@ -380,7 +380,7 @@ while LOOP:
             low_pres_warn = new_value[1]
                 
         # Look for change in high pressure warning 
-        status, resp = READ('overPressure')
+        status, resp = READ('hi_pres_warn')
         if not status and resp == 401:
             FLAG_CHECK_ACTIVATION = True
         if not status and resp == 304:
@@ -390,7 +390,7 @@ while LOOP:
             new_value = resp.split('=')
             hi_pres_warn = new_value[1]
 
-        # Generate random temperature and pressure values
+        # Generate random temperature and pressure values for sparkline
         outside_temp = round(random.uniform(outside_temp - 0.2, outside_temp + 0.2), 1)
         if outside_temp > 120:
             outside_temp = 120
