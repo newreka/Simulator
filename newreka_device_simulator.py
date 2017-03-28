@@ -91,8 +91,8 @@ carrier = "Verizon"
 imei = "12345-12345"
 
 # Default Simulated Newreka device inputs
-lo_pres_warn = -1
-hi_pres_warn = -1
+underPressure = -1
+overPressure = -1
 
 # --------------------------#
 # MURANO SPECIFIC FUNCTIONS
@@ -388,7 +388,7 @@ while LOOP:
         if status:
             print("High Pressure Warning Value: {}".format(str(resp)))
             new_value = resp.split('=')
-            hi_pres_warn = new_value[1]
+            overPressure = new_value[1]
 
         # Generate random temperature and pressure values
         outside_temp = round(random.uniform(outside_temp - 0.2, outside_temp + 0.2), 1)
