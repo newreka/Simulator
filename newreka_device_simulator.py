@@ -377,7 +377,7 @@ while LOOP:
         if status:
             print("Low Pressure Warning Value: {}".format(str(resp)))
             new_value = resp.split('=')
-            low_pres_warn = new_value[1]
+            underPressure = new_value[1]
                 
         # Look for change in high pressure warning 
         status, resp = READ('overPressure')
